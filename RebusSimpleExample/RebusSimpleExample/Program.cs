@@ -18,6 +18,8 @@ namespace RebusSimpleExample
             Host.CreateDefaultBuilder(args)
                 .ConfigureServices((hostContext, services) =>
                 {
+                    services.AddRebusAsOneWayClient();
+
                     services.AddHostedService<Worker>();
                 });
     }
