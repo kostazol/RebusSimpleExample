@@ -12,8 +12,25 @@ namespace RebusSimpleExample
     {
         public static void AddRebusAsOneWayClient(this IServiceCollection services)
         {
-            AmazonSQSConfig _sqsConfig = new AmazonSQSConfig();
-            _sqsConfig.RegionEndpoint = RegionEndpoint.USEast2;
+            //// Amazon
+            //AmazonSQSConfig _sqsConfig = new AmazonSQSConfig();
+            //_sqsConfig.RegionEndpoint = RegionEndpoint.USEast2;
+            //var credentials = new Amazon.Runtime.BasicAWSCredentials("your-iam-access-key", "your-iam-secret-key");
+
+
+            //// Yandex.Cloud
+            //AmazonSQSConfig _sqsConfig = new AmazonSQSConfig
+            //{
+            //    ServiceURL = "https://message-queue.api.cloud.yandex.net",
+            //    AuthenticationRegion = "ru-central1"
+            //};
+            //var credentials = new Amazon.Runtime.BasicAWSCredentials("your-iam-access-key", "your-iam-secret-key");
+
+            // Mail.ru Cloud Solutions
+            AmazonSQSConfig _sqsConfig = new AmazonSQSConfig
+            {
+                ServiceURL = "https://sqs.mcs.mail.ru"
+            };
             var credentials = new Amazon.Runtime.BasicAWSCredentials("your-iam-access-key", "your-iam-secret-key");
 
             services.AddRebus(
